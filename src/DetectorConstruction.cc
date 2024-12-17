@@ -27,9 +27,14 @@ G4VPhysicalVolume *PMDetectorConstruction::Construct()
     G4Material *flaskMat = nist->FindOrBuildMaterial("G4_POLYETHYLENE");
     G4Material *waterMat = nist->FindOrBuildMaterial("G4_WATER");
 
-    G4double photonEnergyMin = ConvertWavelengthToEnergy(800. * nm);
-    G4double photonEnergyMax = ConvertWavelengthToEnergy(300. * nm);
+    G4cout << *waterMat << G4endl;
 
+    G4double photonEnergyMin = ConvertWavelengthToEnergy(800.);
+    G4double photonEnergyMax = ConvertWavelengthToEnergy(300.);
+
+    G4cout << "Minimum photon energy: " << photonEnergyMin << G4endl;
+    G4cout << "Maximum photon energy: " << photonEnergyMax << G4endl;
+    
     std::vector<G4double> photonEnergy = {photonEnergyMin * eV, photonEnergyMax * eV};
     std::vector<G4double> refIndexWorld = {1.0, 1.0};
     std::vector<G4double> refIndexWater = {1.33, 1.33};
@@ -82,8 +87,8 @@ G4VPhysicalVolume *PMDetectorConstruction::Construct()
     logicWater->SetVisAttributes(detVisAtt);
 
     // Detector
-    G4double PMTLength = 0.5 * cm;
-    G4double PMTShift = waterLength + PMTLength;
+    G4double PMTLength = 0.1 * cm;
+    G4double PMTShift = -waterLength - PMTLength;
 
     G4Tubs *solidPMT = new G4Tubs("solidPMT", 0.0, waterRadius, PMTLength, 0., 360. * deg);
     logicPMT = new G4LogicalVolume(solidPMT, waterMat, "logicPMT");
@@ -94,11 +99,10 @@ G4VPhysicalVolume *PMDetectorConstruction::Construct()
     logicPMT->SetVisAttributes(PMTVisAtt);
 
     // Flask
-    G4double flaskLength = PMTShift + PMTLength;
     G4double flaskThickness = 0.5 * cm;
     G4double flaskRadius = waterRadius + flaskThickness;
 
-    G4Tubs *solidFlask = new G4Tubs("solidPMT", waterRadius, flaskRadius, flaskLength, 0., 360. * deg);
+    G4Tubs *solidFlask = new G4Tubs("solidPMT", waterRadius, flaskRadius, waterLength, 0., 360. * deg);
     G4LogicalVolume *logicFlask = new G4LogicalVolume(solidFlask, flaskMat, "logicPMT");
     G4VPhysicalVolume *physFlask = new G4PVPlacement(0, G4ThreeVector(0, 0, 0 * cm), logicFlask, "physFlask", logicWorld, false, 0, checkOverlaps);
 
@@ -106,17 +110,17 @@ G4VPhysicalVolume *PMDetectorConstruction::Construct()
     FlaskVisAtt->SetForceSolid(true);
     logicFlask->SetVisAttributes(FlaskVisAtt);
 
-    // Mirror surface
-    G4LogicalBorderSurface *surfaceMirror = new G4LogicalBorderSurface("MirrorSurface", physWater, physFlask, mirrorSurface);
-
     // Endcaps
     G4double endcapLength = 0.25 * cm;
-    G4double endcapShift = flaskLength + endcapLength;
+    G4double endcapShift = waterLength + endcapLength;
 
     G4Tubs *solidEndcap = new G4Tubs("solidEndap", 0.0 * cm, flaskRadius, endcapLength, 0., 360. * deg);
     G4LogicalVolume *logicEndcap = new G4LogicalVolume(solidEndcap, flaskMat, "logicEndcap");
     G4VPhysicalVolume *physEndcap1 = new G4PVPlacement(0, G4ThreeVector(0, 0, endcapShift), logicEndcap, "physEndcap1", logicWorld, false, 0, checkOverlaps);
-    G4VPhysicalVolume *physEndcap2 = new G4PVPlacement(0, G4ThreeVector(0, 0, -endcapShift), logicEndcap, "physEndcap2", logicWorld, false, 0, checkOverlaps);
+
+    // Mirror surfaces
+    G4LogicalBorderSurface *surfaceMirrorFlask = new G4LogicalBorderSurface("MirrorSurfaceFlask", physWater, physFlask, mirrorSurface);
+    G4LogicalBorderSurface *surfaceMirrorEndcap = new G4LogicalBorderSurface("MirrorSurfaceEndcap", physWater, physEndcap1, mirrorSurface);
 
     logicEndcap->SetVisAttributes(FlaskVisAtt);
 

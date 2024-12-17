@@ -41,8 +41,6 @@ G4bool PMSensitiveDetector::ProcessHits(G4Step *aStep, G4TouchableHistory *ROhis
 
     G4Track *track = aStep->GetTrack();
 
-    track->SetTrackStatus(fStopAndKill);
-
     if (track->GetDefinition() == G4OpticalPhoton::OpticalPhotonDefinition())
     {
         if (preStepPoint->GetStepStatus() == fGeomBoundary)
@@ -51,6 +49,8 @@ G4bool PMSensitiveDetector::ProcessHits(G4Step *aStep, G4TouchableHistory *ROhis
             analysisManager->FillNtupleDColumn(1, 1, globalTime);
             analysisManager->FillNtupleDColumn(1, 2, wlen);
             analysisManager->AddNtupleRow(1);
+
+            track->SetTrackStatus(fStopAndKill);
 
             iPhotonCount++;
 
