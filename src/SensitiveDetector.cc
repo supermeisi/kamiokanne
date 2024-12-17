@@ -1,4 +1,4 @@
-#include "PMSensitiveDetector.hh"
+#include "SensitiveDetector.hh"
 
 PMSensitiveDetector::PMSensitiveDetector(G4String name) : G4VSensitiveDetector(name)
 {

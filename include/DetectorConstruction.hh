@@ -21,7 +21,7 @@
 #include "G4UnitsTable.hh"
 #include "G4SDManager.hh"
 
-#include "PMSensitiveDetector.hh"
+#include "SensitiveDetector.hh"
 
 class PMDetectorConstruction : public G4VUserDetectorConstruction
 {

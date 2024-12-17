@@ -1,4 +1,4 @@
-#include "PMEventAction.hh"
+#include "EventAction.hh"
 
 PMEventAction::PMEventAction(PMRunAction *)
 {

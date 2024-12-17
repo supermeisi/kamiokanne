@@ -1,4 +1,4 @@
-#include "PMActionInitialization.hh"
+#include "ActionInitialization.hh"
 
 PMActionInitialization::PMActionInitialization()
 {

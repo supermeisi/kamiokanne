@@ -8,9 +8,9 @@
 #include "G4UIExecutive.hh"
 #include "G4PhysListFactory.hh"
 
-#include "PMDetectorConstruction.hh"
-#include "PMPhysicsList.hh"
-#include "PMActionInitialization.hh"
+#include "DetectorConstruction.hh"
+#include "PhysicsList.hh"
+#include "ActionInitialization.hh"
 
 int main(int argc, char **argv)
 {

@@ -1,4 +1,4 @@
-#include "PMPrimaryGenerator.hh"
+#include "PrimaryGenerator.hh"
 
 PMPrimaryGenerator::PMPrimaryGenerator()
 {

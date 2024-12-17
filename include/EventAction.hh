@@ -5,7 +5,7 @@
 #include "G4AnalysisManager.hh"
 #include "G4Event.hh"
 
-#include "PMRunAction.hh"
+#include "RunAction.hh"
 
 class PMEventAction : public G4UserEventAction
 {

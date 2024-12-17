@@ -1,4 +1,4 @@
-#include "PMRunAction.hh"
+#include "RunAction.hh"
 
 PMRunAction::PMRunAction()
 {

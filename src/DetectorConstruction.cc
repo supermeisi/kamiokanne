@@ -1,4 +1,4 @@
-#include "PMDetectorConstruction.hh"
+#include "DetectorConstruction.hh"
 
 PMDetectorConstruction::PMDetectorConstruction()
 {

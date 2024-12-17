@@ -1,4 +1,4 @@
-#include "PMPhysicsList.hh"
+#include "PhysicsList.hh"
 
 PMPhysicsList::PMPhysicsList()
 {
