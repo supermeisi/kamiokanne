@@ -1,6 +1,6 @@
 #include "RunAction.hh"
 
-PMRunAction::PMRunAction()
+RunAction::RunAction()
 {
     G4AnalysisManager *analysisManager = G4AnalysisManager::Instance();
 
@@ -21,11 +21,11 @@ PMRunAction::PMRunAction()
     analysisManager->FinishNtuple(1);
 }
 
-PMRunAction::~PMRunAction()
+RunAction::~RunAction()
 {
 }
 
-void PMRunAction::BeginOfRunAction(const G4Run *run)
+void RunAction::BeginOfRunAction(const G4Run *run)
 {
     G4AnalysisManager *analysisManager = G4AnalysisManager::Instance();
 
@@ -37,7 +37,7 @@ void PMRunAction::BeginOfRunAction(const G4Run *run)
     analysisManager->OpenFile("output" + strRunID.str() + ".root");
 }
 
-void PMRunAction::EndOfRunAction(const G4Run *run)
+void RunAction::EndOfRunAction(const G4Run *run)
 {
     G4AnalysisManager *man = G4AnalysisManager::Instance();
 

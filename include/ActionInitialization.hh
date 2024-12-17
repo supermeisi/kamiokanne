@@ -7,11 +7,11 @@
 #include "RunAction.hh"
 #include "EventAction.hh"
 
-class PMActionInitialization : public G4VUserActionInitialization
+class ActionInitialization : public G4VUserActionInitialization
 {
   public:
-    PMActionInitialization();
-    virtual ~PMActionInitialization();
+    ActionInitialization();
+    virtual ~ActionInitialization();
 
     virtual void BuildForMaster() const;
     virtual void Build() const;

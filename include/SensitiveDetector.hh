@@ -1,5 +1,5 @@
-#ifndef PMSENSITIVEDETECTOR_HH
-#define PMSENSITIVEDETECTOR_HH
+#ifndef SENSITIVEDETECTOR_HH
+#define SENSITIVEDETECTOR_HH
 
 #include "G4VSensitiveDetector.hh"
 #include "G4AnalysisManager.hh"
@@ -10,11 +10,11 @@
 #include "G4SystemOfUnits.hh"
 #include "G4UnitsTable.hh"
 
-class PMSensitiveDetector : public G4VSensitiveDetector
+class SensitiveDetector : public G4VSensitiveDetector
 {
 public:
-    PMSensitiveDetector(G4String);
-    ~PMSensitiveDetector();
+    SensitiveDetector(G4String);
+    ~SensitiveDetector();
 
 private:
     virtual G4bool ProcessHits(G4Step *, G4TouchableHistory *);

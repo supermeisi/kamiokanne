@@ -23,13 +23,13 @@ int main(int argc, char **argv)
 #endif
 
     // Detector construction
-    runManager->SetUserInitialization(new PMDetectorConstruction());
+    runManager->SetUserInitialization(new DetectorConstruction());
 
     // Physics list
-    runManager->SetUserInitialization(new PMPhysicsList());
+    runManager->SetUserInitialization(new PhysicsList());
 
     // Action initialization
-    runManager->SetUserInitialization(new PMActionInitialization());
+    runManager->SetUserInitialization(new ActionInitialization());
 
     if (argc == 1)
     {

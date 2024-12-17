@@ -1,5 +1,5 @@
-#ifndef PMPRIMARYGENERATOR_HH
-#define PMPRIMARYGENERATOR_HH
+#ifndef PRIMARYGENERATOR_HH
+#define PRIMARYGENERATOR_HH
 
 #include "G4VUserPrimaryGeneratorAction.hh"
 #include "G4ParticleDefinition.hh"
@@ -8,11 +8,11 @@
 #include "G4SystemOfUnits.hh"
 #include "G4IonTable.hh"
 
-class PMPrimaryGenerator : public G4VUserPrimaryGeneratorAction
+class PrimaryGenerator : public G4VUserPrimaryGeneratorAction
 {
 public:
-    PMPrimaryGenerator();
-    ~PMPrimaryGenerator();
+    PrimaryGenerator();
+    ~PrimaryGenerator();
 
     virtual void GeneratePrimaries(G4Event *);
 

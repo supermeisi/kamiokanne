@@ -1,5 +1,5 @@
-#ifndef PMDETECTORCONSTRUCTION_HH
-#define PMDETECTORCONSTRUCTION_HH
+#ifndef DETECTORCONSTRUCTION_HH
+#define DETECTORCONSTRUCTION_HH
 
 #include "G4VUserDetectorConstruction.hh"
 
@@ -23,11 +23,11 @@
 
 #include "SensitiveDetector.hh"
 
-class PMDetectorConstruction : public G4VUserDetectorConstruction
+class DetectorConstruction : public G4VUserDetectorConstruction
 {
 public:
-    PMDetectorConstruction();
-    virtual ~PMDetectorConstruction();
+    DetectorConstruction();
+    virtual ~DetectorConstruction();
 
     virtual G4VPhysicalVolume *Construct();
 

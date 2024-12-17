@@ -7,11 +7,11 @@
 
 #include "RunAction.hh"
 
-class PMEventAction : public G4UserEventAction
+class EventAction : public G4UserEventAction
 {
 public:
-    PMEventAction(PMRunAction *);
-    ~PMEventAction();
+    EventAction(RunAction *);
+    ~EventAction();
 
     virtual void BeginOfEventAction(const G4Event *);
     virtual void EndOfEventAction(const G4Event *);

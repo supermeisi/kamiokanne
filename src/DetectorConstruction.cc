@@ -1,14 +1,14 @@
 #include "DetectorConstruction.hh"
 
-PMDetectorConstruction::PMDetectorConstruction()
+DetectorConstruction::DetectorConstruction()
 {
 }
 
-PMDetectorConstruction::~PMDetectorConstruction()
+DetectorConstruction::~DetectorConstruction()
 {
 }
 
-G4double PMDetectorConstruction::ConvertWavelengthToEnergy(G4double wavelength)
+G4double DetectorConstruction::ConvertWavelengthToEnergy(G4double wavelength)
 {
     const G4double h = 6.62607015e-34 * joule * s;
     const G4double c = 299792458 * m / s;
@@ -18,7 +18,7 @@ G4double PMDetectorConstruction::ConvertWavelengthToEnergy(G4double wavelength)
     return energy / eV;
 }
 
-G4VPhysicalVolume *PMDetectorConstruction::Construct()
+G4VPhysicalVolume *DetectorConstruction::Construct()
 {
     G4bool checkOverlaps = true;
 
@@ -127,9 +127,9 @@ G4VPhysicalVolume *PMDetectorConstruction::Construct()
     return physWorld;
 }
 
-void PMDetectorConstruction::ConstructSDandField()
+void DetectorConstruction::ConstructSDandField()
 {
-    PMSensitiveDetector *sensPMT = new PMSensitiveDetector("SensitivePMT");
+    SensitiveDetector *sensPMT = new SensitiveDetector("SensitivePMT");
     logicPMT->SetSensitiveDetector(sensPMT);
 
     G4SDManager::GetSDMpointer()->AddNewDetector(sensPMT);

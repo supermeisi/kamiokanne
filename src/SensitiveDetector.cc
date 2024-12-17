@@ -1,6 +1,6 @@
 #include "SensitiveDetector.hh"
 
-PMSensitiveDetector::PMSensitiveDetector(G4String name) : G4VSensitiveDetector(name)
+SensitiveDetector::SensitiveDetector(G4String name) : G4VSensitiveDetector(name)
 {
     fTotalEnergyDeposited = 0.;
 
@@ -9,18 +9,18 @@ PMSensitiveDetector::PMSensitiveDetector(G4String name) : G4VSensitiveDetector(n
     detName = name;
 }
 
-PMSensitiveDetector::~PMSensitiveDetector()
+SensitiveDetector::~SensitiveDetector()
 {
 }
 
-void PMSensitiveDetector::Initialize(G4HCofThisEvent *)
+void SensitiveDetector::Initialize(G4HCofThisEvent *)
 {
     fTotalEnergyDeposited = 0.;
 
     iPhotonCount = 0.;
 }
 
-G4bool PMSensitiveDetector::ProcessHits(G4Step *aStep, G4TouchableHistory *ROhist)
+G4bool SensitiveDetector::ProcessHits(G4Step *aStep, G4TouchableHistory *ROhist)
 {
     G4int eventID = G4RunManager::GetRunManager()->GetCurrentEvent()->GetEventID();
 
@@ -61,7 +61,7 @@ G4bool PMSensitiveDetector::ProcessHits(G4Step *aStep, G4TouchableHistory *ROhis
     return true;
 }
 
-void PMSensitiveDetector::EndOfEvent(G4HCofThisEvent *)
+void SensitiveDetector::EndOfEvent(G4HCofThisEvent *)
 {
     G4AnalysisManager *analysisManager = G4AnalysisManager::Instance();
 

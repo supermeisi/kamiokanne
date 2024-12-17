@@ -1,27 +1,27 @@
 #include "ActionInitialization.hh"
 
-PMActionInitialization::PMActionInitialization()
+ActionInitialization::ActionInitialization()
 {
 }
 
-PMActionInitialization::~PMActionInitialization()
+ActionInitialization::~ActionInitialization()
 {
 }
 
-void PMActionInitialization::BuildForMaster() const
+void ActionInitialization::BuildForMaster() const
 {
-    PMRunAction *runAction = new PMRunAction();
+    RunAction *runAction = new RunAction();
     SetUserAction(runAction);
 }
 
-void PMActionInitialization::Build() const
+void ActionInitialization::Build() const
 {
-    PMPrimaryGenerator *generator = new PMPrimaryGenerator();
+    PrimaryGenerator *generator = new PrimaryGenerator();
     SetUserAction(generator);
 
-    PMRunAction *runAction = new PMRunAction();
+    RunAction *runAction = new RunAction();
     SetUserAction(runAction);
 
-    PMEventAction *eventAction = new PMEventAction(runAction);
+    EventAction *eventAction = new EventAction(runAction);
     SetUserAction(eventAction);
 }

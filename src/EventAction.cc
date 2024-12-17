@@ -1,18 +1,18 @@
 #include "EventAction.hh"
 
-PMEventAction::PMEventAction(PMRunAction *)
+EventAction::EventAction(RunAction *)
 {
 }
 
-PMEventAction::~PMEventAction()
+EventAction::~EventAction()
 {
 }
 
-void PMEventAction::BeginOfEventAction(const G4Event *event)
+void EventAction::BeginOfEventAction(const G4Event *event)
 {
     G4cout << "Event number: " << event->GetEventID() << G4endl;
 }
 
-void PMEventAction::EndOfEventAction(const G4Event *event)
+void EventAction::EndOfEventAction(const G4Event *event)
 {
 }

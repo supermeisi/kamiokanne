@@ -1,6 +1,6 @@
 #include "PhysicsList.hh"
 
-PMPhysicsList::PMPhysicsList()
+PhysicsList::PhysicsList()
 {
     // EM physics
     RegisterPhysics(new G4EmStandardPhysics());
@@ -9,6 +9,6 @@ PMPhysicsList::PMPhysicsList()
     RegisterPhysics(new G4OpticalPhysics());
 }
 
-PMPhysicsList::~PMPhysicsList()
+PhysicsList::~PhysicsList()
 {
 }
